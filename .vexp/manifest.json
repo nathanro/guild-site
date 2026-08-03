@@ -1,0 +1,25 @@
+{
+  "file_hashes": {
+    "README.md": "5369f4de451038857c143e13eb0bf788c093010179b885f74ea2f9c3e6a67e97",
+    "app/layout.jsx": "e40ac7a573c6fddad85bd29f193b36d22c7304bf48ddbf92cc7b588461d53819",
+    "app/page.jsx": "7ded8ccf81e3dc356afc6190bd603e4b2025eb6ada33b4da415a9a43c037b56e",
+    "components/Features.jsx": "0e2ad4c5c482137e9bb195fb7aaacd21b23a5ed25f9f9a0c2a1fdfc7af1ea566",
+    "components/Footer.jsx": "ba5d3d56d341af2152847d13bae3f783a16b0d5783fde2acd634ac5da0261163",
+    "components/Header.jsx": "84d63151e3d5974a98965c2cf5f4f94431f044c3c43c0504b5418cc816d5b42d",
+    "components/Hero.jsx": "281439390f651c0e13f36132b8f9ac994161db40ac69b2ba4b1910aabafb217d",
+    "components/Pricing.jsx": "b4ba4b5d748a43eb1a2efc21300cd8b491395e9b0c1927e0c52fc636c4c5ff8d",
+    "components/ToolsStack.jsx": "3b1d9b0154b35f94124fcb23f983cd46792e00ac3b4e70c2eb8620e6410d449e",
+    "next.config.js": "30ebd0d1d4edd526e0cb23d599145f98fef255d1e3ac4f012a654e0f984d3873",
+    "postcss.config.js": "d3dcd8e605f141a56e6f9f174f515a5ea135eface1ea4c99bf902b6d6ce6b216",
+    "tailwind.config.js": "7802c64c92d9d221c10b861837aadab46a0f2e2d25daf02210893f748ed1abc9"
+  },
+  "indexed_at_commit": "",
+  "indexed_at_timestamp": "2026-08-03T06:00:01.118783600+00:00",
+  "schema_version": 3,
+  "stats": {
+    "total_edges": 22,
+    "total_files": 12,
+    "total_nodes": 31
+  },
+  "vexp_version": "2.1.7"
+}

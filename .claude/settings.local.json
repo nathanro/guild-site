@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__vexp__run_pipeline",
+      "Bash(npm run *)",
+      "Bash(npx next *)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ToolsStack from '../components/ToolsStack';
+import VideoSection from '../components/VideoSection';
 import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
 import FinalCTA from '../components/FinalCTA';
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Features />
       <ToolsStack />
+      <VideoSection />
       <Pricing />
       <FAQ />
       <FinalCTA />

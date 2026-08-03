@@ -8,9 +8,9 @@ const includes = [
   'Weekly live training sessions',
   'Done-for-you playbooks',
   'White-label templates',
-  'Certification program',
+  'Practical guides & resources',
   'Priority support',
-  'Exclusive Discord community',
+  'Direct access to the Guild team',
 ];
 
 const Check = () => (

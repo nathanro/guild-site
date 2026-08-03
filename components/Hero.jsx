@@ -73,8 +73,8 @@ export default function Hero() {
           className="text-center text-lg lg:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           One membership. Seven professional tools worth over $10,000 a year.
-          A community of 500+ entrepreneurs who build with AI — and the
-          playbooks they use to grow.
+          Join the new community of entrepreneurs building with AI — and learn
+          the playbooks that scale.
         </motion.p>
 
         {/* CTAs */}

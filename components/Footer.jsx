@@ -29,11 +29,6 @@ const columns = [
   {
     title: 'Connect',
     links: [
-      {
-        label: 'Discord',
-        href: 'https://discord.gg/publiexpert',
-        external: true,
-      },
       { label: 'nathan@publiexpert.com', href: 'mailto:nathan@publiexpert.com' },
       { label: 'publiexpert.com', href: 'https://publiexpert.com', external: true },
     ],

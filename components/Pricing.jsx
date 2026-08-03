@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 const includes = [
-  'Complete tool stack included',
+  'Complete 7-tool stack included',
   'Unlimited community access',
   'Weekly live training sessions',
   'Done-for-you playbooks',
@@ -13,94 +13,109 @@ const includes = [
   'Exclusive Discord community',
 ];
 
+const Check = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="text-primary shrink-0"
+  >
+    <path d="M20 6L9 17l-5-5" />
+  </svg>
+);
+
 export default function Pricing() {
   const redirectToGuild = () => {
     window.location.href = process.env.NEXT_PUBLIC_GUILD_REDIRECT;
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 },
-    },
-  };
-
   return (
-    <section
-      id="pricing"
-      className="py-20 bg-dark/50 px-6"
-    >
-      <div className="max-w-2xl mx-auto">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-            Simple, Transparent Pricing
-          </h2>
-          <p className="text-xl text-gray-300">
-            One price. Complete access. No hidden fees.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="bg-gradient-to-br from-primary/10 via-accent/5 to-dark/80 border-2 border-primary/30 rounded-3xl p-8 lg:p-12"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Price Display */}
+    <section id="pricing" className="py-28 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: copy */}
           <motion.div
-            className="text-center mb-8"
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="flex justify-center items-baseline gap-1 mb-2">
-              <span className="text-5xl text-primary">$</span>
-              <span className="text-7xl font-bold text-white">67</span>
-              <span className="text-2xl text-gray-300">/month</span>
+            <p className="eyebrow mb-5">Pricing</p>
+            <h2 className="font-serif text-4xl lg:text-6xl leading-[1.05] tracking-tight text-cream mb-6">
+              One price.
+              <br />
+              <em className="text-muted">Complete access.</em>
+            </h2>
+            <p className="text-lg text-muted leading-relaxed mb-8 max-w-md">
+              No tiers, no upsells, no hidden fees. Every member gets the full
+              stack, the full training library, and the full community from
+              day one.
+            </p>
+            <div className="flex items-center gap-4 text-sm text-muted">
+              <div className="flex items-center gap-2">
+                <Check /> Cancel anytime
+              </div>
+              <div className="flex items-center gap-2">
+                <Check /> Billed monthly
+              </div>
             </div>
-            <p className="text-gray-400">Billed monthly • Cancel anytime</p>
           </motion.div>
 
-          {/* Includes List */}
+          {/* Right: pricing card */}
           <motion.div
-            className="space-y-3 mb-10"
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
+            className="relative"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            {includes.map((item, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center gap-3"
-                variants={itemVariants}
-              >
-                <span className="text-green-500 font-bold text-xl">✓</span>
-                <span className="text-gray-300">{item}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Glow */}
+            <div className="absolute -inset-4 bg-primary/10 rounded-[2rem] blur-2xl pointer-events-none" />
 
-          {/* CTA Button */}
-          <motion.button
-            onClick={redirectToGuild}
-            className="w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-primary/50"
-            whileHover={{ y: -3, scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            variants={itemVariants}
-          >
-            Start Your Journey – Join Now
-          </motion.button>
-        </motion.div>
+            <div className="relative card !bg-surface !rounded-3xl p-8 lg:p-10 !border-white/10">
+              <div className="flex items-center justify-between mb-8">
+                <span className="font-mono text-[11px] uppercase tracking-widest2 text-muted">
+                  Guild Membership
+                </span>
+                <span className="inline-flex items-center rounded-full bg-primary/10 border border-primary/25 px-3 py-1 font-mono text-[11px] text-primary">
+                  $10K+ value
+                </span>
+              </div>
+
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="font-serif text-7xl text-cream">$67</span>
+                <span className="text-muted">/month</span>
+              </div>
+              <p className="text-sm text-muted mb-8">
+                Less than $2.25 a day for your entire stack.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3.5 gap-x-6 mb-9">
+                {includes.map((item) => (
+                  <div key={item} className="flex items-center gap-2.5">
+                    <Check />
+                    <span className="text-[14px] text-cream/85">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button onClick={redirectToGuild} className="btn-primary w-full">
+                Join the Guild
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+              <p className="text-center text-xs text-muted mt-4">
+                Instant access · No setup fees · Cancel anytime
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

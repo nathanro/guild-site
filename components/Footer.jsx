@@ -1,65 +1,98 @@
 'use client';
 
-import { motion } from 'framer-motion';
+const columns = [
+  {
+    title: 'Guild',
+    links: [
+      { label: 'Membership', href: '#features' },
+      { label: 'The Stack', href: '#stack' },
+      { label: 'Pricing', href: '#pricing' },
+      { label: 'FAQ', href: '#faq' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Training', href: '#' },
+      { label: 'Templates', href: '#' },
+      { label: 'Playbooks', href: '#' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacy Policy', href: '#' },
+      { label: 'Terms of Service', href: '#' },
+      { label: 'Refund Policy', href: '#' },
+    ],
+  },
+  {
+    title: 'Connect',
+    links: [
+      {
+        label: 'Discord',
+        href: 'https://discord.gg/publiexpert',
+        external: true,
+      },
+      { label: 'nathan@publiexpert.com', href: 'mailto:nathan@publiexpert.com' },
+      { label: 'publiexpert.com', href: 'https://publiexpert.com', external: true },
+    ],
+  },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark border-t border-primary/10 px-6 py-12">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div>
-            <h3 className="font-bold text-white mb-4">About</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-primary transition">About Guild</a></li>
-              <li><a href="#" className="hover:text-primary transition">Our Team</a></li>
-              <li><a href="#" className="hover:text-primary transition">Blog</a></li>
-              <li><a href="#" className="hover:text-primary transition">Contact</a></li>
-            </ul>
+    <footer className="border-t border-white/[0.06] px-6 pt-16 pb-10">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-10 mb-14">
+          {/* Brand */}
+          <div className="col-span-2">
+            <div className="flex items-center gap-2.5 mb-4">
+              <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-ink font-bold text-sm">
+                ⌘
+              </span>
+              <span className="font-semibold text-[15px] tracking-tight text-cream">
+                PubliExpert <span className="text-muted font-normal">AI Guild</span>
+              </span>
+            </div>
+            <p className="text-sm text-muted leading-relaxed max-w-xs">
+              The membership that gives entrepreneurs the AI stack, training,
+              and community to grow — for one flat price.
+            </p>
           </div>
-          <div>
-            <h3 className="font-bold text-white mb-4">Resources</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-primary transition">Training</a></li>
-              <li><a href="#" className="hover:text-primary transition">Templates</a></li>
-              <li><a href="#" className="hover:text-primary transition">Playbooks</a></li>
-              <li><a href="#" className="hover:text-primary transition">Tools</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold text-white mb-4">Legal</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-primary transition">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-primary transition">Refund Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition">Support</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold text-white mb-4">Connect</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="https://discord.gg/publiexpert" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition">Discord Community</a></li>
-              <li><a href="#" className="hover:text-primary transition">Twitter</a></li>
-              <li><a href="#" className="hover:text-primary transition">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-primary transition">Instagram</a></li>
-            </ul>
-          </div>
-        </motion.div>
 
-        <motion.div
-          className="border-t border-primary/10 pt-8 text-center text-gray-400 text-sm"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <p>&copy; {currentYear} PubliExpert AI Guild. All rights reserved. | Built with ❤️ for entrepreneurs.</p>
-        </motion.div>
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h3 className="font-mono text-[11px] uppercase tracking-widest2 text-muted mb-4">
+                {col.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      {...(link.external
+                        ? { target: '_blank', rel: 'noopener noreferrer' }
+                        : {})}
+                      className="text-sm text-cream/70 hover:text-cream transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-[13px] text-muted">
+          <p>© {currentYear} PubliExpert LLC. All rights reserved.</p>
+          <p className="font-mono text-[11px] uppercase tracking-widest2">
+            Built for entrepreneurs
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -1,12 +1,33 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Inter, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const instrument = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-instrument',
+  display: 'swap',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+});
 
 export const metadata = {
-  title: 'PubliExpert AI Guild - Master AI Tools & Community',
-  description: 'Join the elite AI community. Learn Followr, GHL, Answerly, AI automation & grow your business.',
-  keywords: 'AI, automation, GHL, Followr, Answerly, community, entrepreneurship',
+  title: 'PubliExpert AI Guild — Master AI Tools & Community',
+  description:
+    'Join the elite AI community. Learn Followr, GHL, Answerly, AI automation & grow your business.',
+  keywords:
+    'AI, automation, GHL, Followr, Answerly, community, entrepreneurship',
   openGraph: {
     title: 'PubliExpert AI Guild',
     description: 'Join 500+ entrepreneurs mastering AI automation.',
@@ -24,11 +45,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={`${inter.className} bg-dark text-white`}>
+      <body
+        className={`${inter.variable} ${instrument.variable} ${jetbrains.variable} font-sans bg-ink text-cream`}
+      >
         {children}
       </body>
     </html>

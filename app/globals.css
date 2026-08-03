@@ -13,70 +13,86 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 100%);
-  color: #e5e7eb;
+  background: #08080C;
+  color: #EDEDF2;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Scrollbar styling */
+::selection {
+  background: rgba(139, 139, 245, 0.35);
+  color: #fff;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.8);
+  background: #08080C;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #6366f1;
-  border-radius: 5px;
+  background: #26262f;
+  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #4f46e5;
+  background: #3a3a48;
 }
 
-/* Gradient text utility */
-.gradient-text {
-  @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+/* Eyebrow label */
+.eyebrow {
+  @apply font-mono text-xs uppercase tracking-widest2 text-primary flex items-center gap-3;
+}
+.eyebrow::before {
+  content: '';
+  @apply block w-8 h-px bg-primary/60;
+}
+.eyebrow-center {
+  @apply font-mono text-xs uppercase tracking-widest2 text-primary inline-flex items-center gap-3 justify-center;
+}
+.eyebrow-center::before,
+.eyebrow-center::after {
+  content: '';
+  @apply block w-8 h-px bg-primary/60;
 }
 
-/* Smooth transitions */
-button,
-a {
-  @apply transition-all duration-300;
+/* Card surface */
+.card {
+  @apply bg-white/[0.02] border border-white/[0.07] rounded-2xl transition-colors duration-300;
+}
+.card:hover {
+  @apply border-white/[0.14] bg-white/[0.035];
 }
 
-/* Focus states */
+/* Hero grid backdrop */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 bg-cream text-ink font-semibold rounded-full px-7 py-3.5 text-[15px] transition-all duration-300;
+}
+.btn-primary:hover {
+  @apply bg-white shadow-[0_0_40px_rgba(139,139,245,0.35)];
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 text-cream font-medium rounded-full px-7 py-3.5 text-[15px] border border-white/15 transition-all duration-300;
+}
+.btn-ghost:hover {
+  @apply border-white/35 bg-white/[0.04];
+}
+
 button:focus-visible,
 a:focus-visible {
-  @apply outline-2 outline-offset-2 outline-primary;
-}
-
-/* Animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.glow {
-  animation: glow 2s ease-in-out infinite;
+  outline: 2px solid #8B8BF5;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
